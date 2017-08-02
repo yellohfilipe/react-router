@@ -13,6 +13,8 @@ describe('A <Router>', () => {
 
   describe('when it has more than one child', () => {
     it('throws an error explaining a Router may have only one child', () => {
+      spyOn(console, 'error')
+
       expect(() => {
         ReactDOM.render(
           <Router history={createHistory()}>
@@ -22,6 +24,11 @@ describe('A <Router>', () => {
           node
         )
       }).toThrow(/A <Router> may have only one child element/)
+
+      expect(console.error).toHaveBeenCalledTimes(1)
+      expect(console.error).toHaveBeenCalledWith(
+        expect.stringContaining('A <Router> may have only one child element')
+      )
     })
   })
 

@@ -62,9 +62,9 @@
     "gzip-size": "^3.0.0",
     "jest": "^20.0.4",
     "pretty-bytes": "^3.0.1",
-    "react": "^15.4.2",
+    "react": "^16.0.0-beta.2",
     "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^15.3.0",
+    "react-dom": "^16.0.0-beta.2",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
@@ -84,5 +84,10 @@
     "routing",
     "history",
     "link"
-  ]
+  ],
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tools/requestAnimationFrame.js"
+    ]
+  }
 }

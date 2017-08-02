@@ -91,11 +91,18 @@ describe('A <Route>', () => {
   it('throws with no <Router>', () => {
     const node = document.createElement('div')
 
+    spyOn(console, 'error')
+
     expect(() => {
       ReactDOM.render((
         <Route path="/" render={() => null} />
       ), node)
     }).toThrow(/You should not use <Route> or withRouter\(\) outside a <Router>/)
+
+    expect(console.error).toHaveBeenCalledTimes(1)
+    expect(console.error).toHaveBeenCalledWith(
+      expect.stringContaining('You should not use <Route> or withRouter() outside a <Router>')
+    )
   })
 })
 
